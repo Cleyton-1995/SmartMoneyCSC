@@ -7,20 +7,20 @@ interface EntrySumaryListProps {
 }
 
 export function EntrySumaryList({ title }: EntrySumaryListProps) {
-  const data = [
-    { key: "Alimentação: $ 201" },
-    { key: "Combustível: $ 100" },
-    { key: "Aluguel: $ 300" },
-    { key: "Lazer: $ 250" },
-    { key: "Outros: $ 1200" },
-  ];
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
 
       <FlatList
-        data={data}
+        data={
+          [
+            { key: "Alimentação: $ 201" },
+            { key: "Combustível: $ 100" },
+            { key: "Aluguel: $ 300" },
+            { key: "Lazer: $ 250" },
+            { key: "Outros: $ 1200" },
+          ]
+        }
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>{item.key}</Text>
