@@ -5,7 +5,7 @@ import { styles } from "./styles";
 import { BalanceLabel } from "../../components/BalanceLabel";
 import { Ionicons } from "@expo/vector-icons";
 
-export function NewEntry() {
+export function NewEntry({navigation}: any) {
   return (
     <View style={styles.container}>
       <BalanceLabel />
@@ -37,7 +37,8 @@ export function NewEntry() {
           <TouchableOpacity activeOpacity={0.8}>
             <Text style={styles.buttonTextAdd}>Adicionar</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.8}>
+
+          <TouchableOpacity onPress={() => navigation.navigate("Main")} activeOpacity={0.8}>
             <Text style={styles.buttonTextCancel}>Cancelar</Text>
           </TouchableOpacity>
         </View>

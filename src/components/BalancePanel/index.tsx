@@ -5,14 +5,18 @@ import { styles } from "./styles";
 import { BalancePanelLabel } from "./BalancePanelLabel";
 import { BalancePanelChart } from "./BalancePanelChart";
 
-export function BalancePanel() {
+interface BalancePanelProps {
+  onPress: () => void;
+}
+
+export function BalancePanel({onPress}: BalancePanelProps) {
   return (
     <View style={styles.container}>
       <BalancePanelLabel label="Saldo Atual" value="$ 2.102,45" />
       
       <BalancePanelChart />
       
-      <TouchableOpacity activeOpacity={0.8}>
+      <TouchableOpacity onPress={onPress} activeOpacity={0.8}>
         <Text>Adicionar</Text>
       </TouchableOpacity>
     </View>
