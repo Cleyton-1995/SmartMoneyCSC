@@ -4,11 +4,12 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { BalanceLabel } from "../../components/BalanceLabel";
 import { Ionicons } from "@expo/vector-icons";
+export function NewEntry({ navigation }: any) {
+  const currentBalance = 2064.35;
 
-export function NewEntry({navigation}: any) {
   return (
     <View style={styles.container}>
-      <BalanceLabel />
+      <BalanceLabel currentBalance={currentBalance} label="Saldo Atual" />
 
       <View>
         <TextInput style={styles.input} />
@@ -38,7 +39,10 @@ export function NewEntry({navigation}: any) {
             <Text style={styles.buttonTextAdd}>Adicionar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.navigate("Main")} activeOpacity={0.8}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Main")}
+            activeOpacity={0.8}
+          >
             <Text style={styles.buttonTextCancel}>Cancelar</Text>
           </TouchableOpacity>
         </View>

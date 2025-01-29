@@ -8,9 +8,11 @@ import { EntryList } from "../../components/EntryList";
 import { Picker } from "@react-native-picker/picker";
 
 export function Report() {
+  const currentBalance = 2064.35;
+
   return (
     <View style={styles.container}>
-      <BalanceLabel />
+      <BalanceLabel label="Saldo Atual" currentBalance={currentBalance} />
 
       <View>
         <Picker>
@@ -22,7 +24,7 @@ export function Report() {
       </View>
 
       <EntrySumary />
-      <EntryList />
+      <EntryList label="Últimos Lançamentos" />
 
       <View style={styles.button}>
         <TouchableOpacity activeOpacity={0.8}>
