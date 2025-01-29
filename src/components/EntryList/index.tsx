@@ -5,21 +5,20 @@ import { styles } from "./styles";
 
 interface EntryListProps {
   label: string;
+  entries?: Array<{ key: string; description: string; amount: number }>;
 }
 
-export function EntryList({label}: EntryListProps) {
+export function EntryList({ label, entries }: EntryListProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{label}</Text>
 
       <FlatList
-        data={[
-          { key: "Padaria Asa Branca: $ 10" },
-          { key: "Supermercado Flor: $ 190" },
-          { key: "Posto Soares: $ 190" },
-        ]}
+        data={entries}
         keyExtractor={(item) => item.key}
-        renderItem={({ item }) => <Text>{item.key}</Text>}
+        renderItem={({ item }) => (
+          <Text>{`${item.description} - $ ${item.amount}`}</Text>
+        )}
       />
     </View>
   );

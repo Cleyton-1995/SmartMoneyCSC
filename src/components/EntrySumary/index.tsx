@@ -5,11 +5,14 @@ import { styles } from "./styles";
 import { EntrySumaryChart } from "./EntrySumaryChart";
 import { EntrySumaryList } from "./EntrySumaryList";
 
-export function EntrySumary() {
+interface EntrySumaryProps {
+  entriesGrouped?: Array<{ key: string; description: string; amount: number }>;
+}
+export function EntrySumary({ entriesGrouped }: EntrySumaryProps) {
   return (
     <View style={styles.container}>
       <EntrySumaryChart />
-      <EntrySumaryList title="Categorias" />
+      <EntrySumaryList entriesGrouped={entriesGrouped} title="Categorias" />
     </View>
   );
 }

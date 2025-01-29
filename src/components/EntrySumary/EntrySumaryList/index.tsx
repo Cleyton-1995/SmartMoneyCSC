@@ -4,26 +4,22 @@ import { styles } from "./styles";
 
 interface EntrySumaryListProps {
   title: string;
+  entriesGrouped?: Array<{ key: string; description: string; amount: number }>;
 }
 
-export function EntrySumaryList({ title }: EntrySumaryListProps) {
+export function EntrySumaryList({
+  title,
+  entriesGrouped,
+}: EntrySumaryListProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
 
       <FlatList
-        data={
-          [
-            { key: "Alimentação: $ 201" },
-            { key: "Combustível: $ 100" },
-            { key: "Aluguel: $ 300" },
-            { key: "Lazer: $ 250" },
-            { key: "Outros: $ 1200" },
-          ]
-        }
+        data={entriesGrouped}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
-          <Text>{item.key}</Text>
+          <Text>{`${item.description} - $ ${item.amount}`}</Text>
         )}
       />
     </View>
